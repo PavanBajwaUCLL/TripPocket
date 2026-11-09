@@ -1,4 +1,5 @@
 import { View, Image, StyleSheet } from 'react-native';
+import { colors } from '../../theme';
 import { Text } from './Text';
 
 interface AvatarProps {
@@ -7,10 +8,15 @@ interface AvatarProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
+function getInitials(name: string): string {
+  const parts = name.trim().split(' ');
+  const first = parts[0][0];
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+  return `${first}${last}`.toUpperCase();
+}
+
 export function Avatar({ uri, name, size = 'md' }: AvatarProps) {
-  const initials = name
-    ? name.split(' ').map((part) => part[0]).join('').toUpperCase().slice(0, 2)
-    : '?';
+  const initials = name ? getInitials(name) : '?';
 
   if (uri !== undefined) {
     return <Image source={{ uri }} style={[styles.base, styles[size]]} />;
@@ -18,15 +24,21 @@ export function Avatar({ uri, name, size = 'md' }: AvatarProps) {
 
   return (
     <View style={[styles.base, styles[size], styles.fallback]}>
-      <Text size="sm">{initials}</Text>
+      {size === 'lg' ? (
+        <Text size="title" weight="extrabold" color={colors.primary}>
+          {initials}
+        </Text>
+      ) : (
+        <Text size="sm">{initials}</Text>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   base: { borderRadius: 999, overflow: 'hidden', alignItems: 'center', justifyContent: 'center' },
-  fallback: {},
-  sm: {},
-  md: {},
-  lg: {},
+  fallback: { backgroundColor: colors.primarySoft },
+  sm: { height: 32, width: 32 },
+  md: { height: 44, width: 44 },
+  lg: { height: 88, width: 88 },
 });

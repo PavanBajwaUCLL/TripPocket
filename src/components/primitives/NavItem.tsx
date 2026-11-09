@@ -1,22 +1,36 @@
-import { Pressable, StyleSheet } from 'react-native';
+import { Image, Pressable, StyleSheet } from 'react-native';
+import type { ImageSourcePropType } from 'react-native';
+import { colors, spacing } from '../../theme';
 import { Text } from './Text';
 
 interface NavItemProps {
   label: string;
   onPress: () => void;
   active?: boolean;
-  icon?: string;
+  icon?: ImageSourcePropType;
 }
 
-export function NavItem({ label, onPress, active = false }: NavItemProps) {
+export function NavItem({ label, onPress, active = false, icon }: NavItemProps) {
   return (
-    <Pressable onPress={onPress} style={[styles.base, active && styles.active]}>
-      <Text size="md" weight={active ? 'bold' : 'normal'}>{label}</Text>
+    <Pressable
+      accessibilityRole="button"
+      accessibilityState={{ selected: active }}
+      onPress={onPress}
+      style={styles.base}
+    >
+      {icon !== undefined && <Image source={icon} style={styles.icon} />}
+      <Text
+        size="caption"
+        weight="semibold"
+        color={active ? colors.primary : colors.muted}
+      >
+        {label}
+      </Text>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  base: {},
-  active: {},
+  base: { alignItems: 'center', gap: spacing.tight },
+  icon: { height: 22, width: 22 },
 });
