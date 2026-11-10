@@ -39,7 +39,10 @@ export default function HomeScreen() {
           accessibilityRole="button"
           accessibilityLabel="Profile"
           onPress={() => router.replace('/profile')}
-          style={styles.profileButton}
+          style={({ pressed }) => [
+            styles.profileButton,
+            pressed && styles.pressed,
+          ]}
         >
           <Image
             source={require('../../assets/images/icons/user-active.png')}
@@ -87,5 +90,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 44,
   },
+  pressed: { opacity: 0.6 },
   profileIcon: { height: 22, width: 22 },
 });

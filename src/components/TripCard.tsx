@@ -1,10 +1,10 @@
-import { Image, StyleSheet, View } from 'react-native';
-import type { ImageSourcePropType } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { Badge, Card, Row, Stack, Text } from './primitives';
-import { colors, spacing } from '../theme';
+import { Image, StyleSheet, View } from "react-native";
+import type { ImageSourcePropType } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { Badge, Card, Row, Stack, Text } from "./primitives";
+import { colors, spacing } from "../theme";
 
-const SCRIM_COLORS = ['rgba(13,13,61,0)', 'rgba(13,13,61,0.78)'] as const;
+const SCRIM_COLORS = ["rgba(13,13,61,0)", "rgba(13,13,61,0.78)"] as const;
 const SCRIM_LOCATIONS = [0.35, 1] as const;
 
 interface TripCardBaseProps {
@@ -14,12 +14,12 @@ interface TripCardBaseProps {
 }
 
 interface FeaturedTripCardProps extends TripCardBaseProps {
-  variant: 'featured';
+  variant: "featured";
   chips: string[];
 }
 
 interface CompactTripCardProps extends TripCardBaseProps {
-  variant: 'compact';
+  variant: "compact";
   status: string;
 }
 
@@ -27,10 +27,16 @@ type TripCardProps = FeaturedTripCardProps | CompactTripCardProps;
 
 export function TripCard(props: TripCardProps) {
   const { name, dates, illustration, variant } = props;
+  const details =
+    props.variant === "featured" ? props.chips.join(", ") : props.status;
 
   return (
     <Card>
-      <View style={[styles.photo, styles[`${variant}Photo`]]}>
+      <View
+        accessible
+        accessibilityLabel={`${name}, ${dates}, ${details}`}
+        style={[styles.photo, styles[`${variant}Photo`]]}
+      >
         <Image
           source={illustration}
           resizeMode="cover"
@@ -41,7 +47,7 @@ export function TripCard(props: TripCardProps) {
           locations={SCRIM_LOCATIONS}
           style={StyleSheet.absoluteFill}
         />
-        {props.variant === 'featured' ? (
+        {props.variant === "featured" ? (
           <View style={styles.featuredContent}>
             <Stack gap="xs">
               <Text size="title" weight="extrabold" color={colors.white}>
@@ -76,27 +82,27 @@ export function TripCard(props: TripCardProps) {
 }
 
 const styles = StyleSheet.create({
-  photo: { overflow: 'hidden' },
+  photo: { overflow: "hidden" },
   // Explicit size: on web an Image otherwise keeps the file's natural size.
   illustration: {
-    height: '100%',
+    height: "100%",
     left: 0,
-    position: 'absolute',
+    position: "absolute",
     top: 0,
-    width: '100%',
+    width: "100%",
   },
   featuredPhoto: { borderRadius: spacing.lg, height: 210 },
   compactPhoto: { borderRadius: 20, height: 104 },
   featuredContent: {
     bottom: spacing.cozy,
     left: 20,
-    position: 'absolute',
+    position: "absolute",
     right: 20,
   },
   compactContent: {
     bottom: 12,
     left: spacing.md,
-    position: 'absolute',
+    position: "absolute",
     right: spacing.md,
   },
 });

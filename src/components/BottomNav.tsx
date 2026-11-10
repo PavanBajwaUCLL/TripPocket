@@ -33,7 +33,13 @@ export function BottomNav({ active }: BottomNavProps) {
         }
         onPress={() => router.replace('/profile')}
       />
-      <View style={styles.newTrip}>
+      <View
+        accessible
+        accessibilityRole="button"
+        accessibilityLabel="New trip"
+        aria-disabled
+        style={styles.newTrip}
+      >
         <Image
           source={require('../../assets/images/icons/plus.png')}
           style={styles.plus}
