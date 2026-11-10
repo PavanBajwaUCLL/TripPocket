@@ -46,10 +46,11 @@ This version is a Progressive Web App (PWA) that can be installed on a phone. A 
 
 The current screens are static:
 
-* Splash screen
-* Onboarding (3 steps, shown only on first use)
-* Home, with active, past and upcoming trips
-* Profile
+* **Splash screen**
+* **Onboarding** (3 steps, displayed only on first use).
+  * To view the onboarding again in a browser, remove the `trippocket.onboarding-completed` key from your browser's local storage and reload the app.
+* **Home screen**, displaying active, past and upcoming trips.
+* **Profile screen**.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,8 +133,8 @@ The target audience, roadmap and competitors are described in [docs/idea.md](doc
 
 1. Open the [public link](https://trip-pocket-blue.vercel.app).
 2. Go through the 3 onboarding steps. They are only shown the first time.
-3. View your trips on Home.
-4. Use the bottom navigation to switch between Trips and Profile.
+4. View your trips on Home.
+5. Use the bottom navigation to switch between Trips and Profile.
 
 The + button, trip cards and Profile rows are not active yet, because this version is static.
 
