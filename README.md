@@ -82,8 +82,9 @@
 
   ## Database
 
-  The test database is hosted on Supabase. The current screens are static and do not read from it yet.
-  The setup for Supabase is done in the project, but it is not tested yet in the application.
+  * The test database is hosted on Supabase. The current screens are static and do not read from it yet.
+  * The setup for Supabase is done in the codebase, but it is not tested yet in the application.
+  * Vercel has the keys stored as environment variables.
 
   | Table | Purpose |
   | --- | --- |
