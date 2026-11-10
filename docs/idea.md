@@ -1,47 +1,47 @@
 ## TripPocket: The Idea
-  
-  TripPocket is a mobile app that stores all the digital information for a single trip in one central place. When traveling, you often have to search through apps and emails to
-  find items such as a boarding pass, hotel reservation or train tickets. TripPocket brings all this information together in one well-organized app.
 
-  ## Who is the target audience?
+TripPocket is a mobile app that stores all the digital information for a single trip in one central place. When traveling, you often have to search through apps and emails to
+find items such as a boarding pass, hotel reservation or train tickets. TripPocket brings all this information together in one well-organized app.
 
-  Travelers who book flights, hotels and tickets separately and end up with their documents spread over several apps and emails.
+## Who is the target audience?
 
-  - People who plan and book their own trips
-  - Families who want all their travel documents in one place
-  - Regular holiday travelers who need their tickets and bookings close at hand during a trip
+Travelers who book flights, hotels and tickets separately and end up with their documents spread over several apps and emails.
+
+- People who plan and book their own trips
+- Families who want all their travel documents in one place
+- Regular holiday travelers who need their tickets and bookings close at hand during a trip
 
 
-  ## What am I going to build?
+## What am I going to build?
 
-  An app where each trip has its own place for flights, hotels and documents, with a clear overview of what happens each day.
+An app where each trip has its own place for flights, hotels and documents, with a clear overview of what happens each day.
 
-  ### Roadmap
+### Roadmap
 
-  **First assignment: PWA**
+**First assignment: PWA**
 
-  - [x] Splash and onboarding screens
-  - [x] Home and Profile screens (static)
-  - [x] Installable PWA, hosted on Vercel
-  - [x] Hosted test database on Supabase, the app does not use real data yet. Everything in the app is static (for now).
+- [x] Splash and onboarding screens
+- [x] Home and Profile screens (static)
+- [x] Installable PWA, hosted on Vercel
+- [x] Hosted test database on Supabase, the app does not use real data yet. Everything in the app is static (for now).
 
-  **Final version: native app**
+**Final version: native app**
 
-  - [ ] Connect Home and Profile to the database
-  - [ ] Sign in and sign up. Maybe with Google and Apple aswell (If i have extra time)
-  - [ ] Forgot password with email code verification
-  - [ ] Create a new trip screen
-  - [ ] Trip overview with all trip sections
-  - [ ] Flights: list, add a flight, view and upload boarding pass
-  - [ ] Hotels: list, add a hotel, upload booking confirmation
-  - [ ] Transport and tickets: list, add a ticket, view and change QR code
-  - [ ] Documents: travel folder with all passes, reservations and tickets
-  - [ ] Checklist: tick off items and add new ones
-  - [ ] Notes: add, edit and delete notes
-  - [ ] Timeline: view the trip day by day, add, edit and delete items
-  - [ ] Native iOS and Android builds
+- [ ] Connect Home and Profile to the database
+- [ ] Sign in and sign up. Maybe with Google and Apple aswell (If i have extra time)
+- [ ] Forgot password with email code verification
+- [ ] Create a new trip screen
+- [ ] Trip overview with all trip sections
+- [ ] Flights: list, add a flight, view and upload boarding pass
+- [ ] Hotels: list, add a hotel, upload booking confirmation
+- [ ] Transport and tickets: list, add a ticket, view and change QR code
+- [ ] Documents: travel folder with all passes, reservations and tickets
+- [ ] Checklist: tick off items and add new ones
+- [ ] Notes: add, edit and delete notes
+- [ ] Timeline: view the trip day by day, add, edit and delete items
+- [ ] Native iOS and Android builds
 
-  ## Who are the competitors?
+## Who are the competitors?
 
 | App | Focus | How TripPocket differs |
 | --- | --- | --- |
