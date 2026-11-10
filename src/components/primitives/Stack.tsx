@@ -1,8 +1,9 @@
 import { View, StyleSheet } from 'react-native';
+import { spacing } from '../../theme';
 
 interface StackProps {
   children: React.ReactNode;
-  gap?: 'none' | 'sm' | 'md' | 'lg';
+  gap?: 'none' | 'hairline' | 'xs' | 'sm' | 'snug' | 'md' | 'ml' | 'lg';
   align?: 'flex-start' | 'center' | 'flex-end' | 'stretch';
   justify?: 'flex-start' | 'center' | 'flex-end' | 'space-between';
   padding?: 'none' | 'sm' | 'md' | 'lg';
@@ -35,11 +36,15 @@ export function Stack({
 const styles = StyleSheet.create({
   base: { flexDirection: 'column' },
   gap_none: {},
-  gap_sm: {},
-  gap_md: {},
-  gap_lg: {},
+  gap_hairline: { gap: spacing.hairline },
+  gap_xs: { gap: spacing.xs },
+  gap_sm: { gap: spacing.sm },
+  gap_snug: { gap: spacing.snug },
+  gap_md: { gap: spacing.md },
+  gap_ml: { gap: spacing.ml },
+  gap_lg: { gap: spacing.lg },
   padding_none: {},
-  padding_sm: {},
-  padding_md: {},
-  padding_lg: {},
+  padding_sm: { padding: spacing.sm },
+  padding_md: { padding: spacing.md },
+  padding_lg: { padding: spacing.lg },
 });

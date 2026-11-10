@@ -1,15 +1,22 @@
 import { View, StyleSheet } from 'react-native';
+import { colors } from '../../theme';
 import { Text } from './Text';
 
 interface BadgeProps {
   label: string;
-  variant?: 'default' | 'success' | 'warning' | 'error';
+  variant?: 'default' | 'success' | 'warning' | 'error' | 'onImage';
 }
 
 export function Badge({ label, variant = 'default' }: BadgeProps) {
   return (
     <View style={[styles.base, styles[variant]]}>
-      <Text size="sm">{label}</Text>
+      {variant === 'onImage' ? (
+        <Text size="sm" weight="extrabold" color={colors.primary}>
+          {label}
+        </Text>
+      ) : (
+        <Text size="sm">{label}</Text>
+      )}
     </View>
   );
 }
@@ -32,5 +39,10 @@ const styles = StyleSheet.create({
   },
   error: {
     backgroundColor: '#fee2e2',
+  },
+  onImage: {
+    backgroundColor: colors.white,
+    paddingHorizontal: 11,
+    paddingVertical: 5,
   },
 });
