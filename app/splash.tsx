@@ -3,14 +3,16 @@ import { Image, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { Screen, Stack, Text } from '@/components/primitives';
+import { hasCompletedOnboarding } from '@/services';
 import { colors } from '@/theme';
 
 const SPLASH_DURATION_MS = 1500;
 
 export default function SplashScreen() {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      router.replace('/onboarding/one');
+    const timer = setTimeout(async () => {
+      const completed = await hasCompletedOnboarding();
+      router.replace(completed ? '/home' : '/onboarding/one');
     }, SPLASH_DURATION_MS);
 
     return () => clearTimeout(timer);

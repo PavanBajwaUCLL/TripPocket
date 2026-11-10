@@ -1,10 +1,10 @@
-import { Image, StyleSheet, View } from 'react-native';
-import type { ImageSourcePropType } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Row, Screen, Stack, Text } from '../primitives';
-import { StyledButton } from '../StyledButton';
-import { colors, spacing } from '../../theme';
+import { Image, StyleSheet, View } from "react-native";
+import type { ImageSourcePropType } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Row, Screen, Stack, Text } from "../primitives";
+import { StyledButton } from "../StyledButton";
+import { colors, spacing } from "../../theme";
 
 const STEPS = [0, 1, 2] as const;
 
@@ -24,7 +24,7 @@ export function OnboardingSlide({
   icon,
   titleStart,
   titleHighlight,
-  titleEnd = '',
+  titleEnd = "",
   description,
   buttonLabel,
   onContinue,
@@ -62,14 +62,20 @@ export function OnboardingSlide({
             <Text size="body" color={colors.muted} align="center">
               {description}
             </Text>
-            <Row gap="xs">
-              {STEPS.map((dot) => (
-                <View
-                  key={dot}
-                  style={[styles.dot, dot === step && styles.dotActive]}
-                />
-              ))}
-            </Row>
+            <View
+              accessible
+              accessibilityRole="image"
+              accessibilityLabel={`Step ${step + 1} of ${STEPS.length}`}
+            >
+              <Row gap="xs">
+                {STEPS.map((dot) => (
+                  <View
+                    key={dot}
+                    style={[styles.dot, dot === step && styles.dotActive]}
+                  />
+                ))}
+              </Row>
+            </View>
           </Stack>
           <StyledButton
             label={buttonLabel}
@@ -84,17 +90,17 @@ export function OnboardingSlide({
 
 const styles = StyleSheet.create({
   hero: {
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: colors.primarySoft,
-    height: '45%',
-    justifyContent: 'center',
+    height: "45%",
+    justifyContent: "center",
   },
   iconTile: {
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: colors.white,
     borderRadius: 44,
     height: 150,
-    justifyContent: 'center',
+    justifyContent: "center",
     width: 150,
   },
   icon: { height: 72, width: 72 },

@@ -1,5 +1,6 @@
 import { router } from 'expo-router';
 import { OnboardingSlide } from '@/components/onboarding/OnboardingSlide';
+import { completeOnboarding } from '@/services';
 
 export default function OnboardingThreeScreen() {
   return (
@@ -10,7 +11,10 @@ export default function OnboardingThreeScreen() {
       titleHighlight="every day"
       description="See your whole journey in one clear timeline and checklist."
       buttonLabel="Next"
-      onContinue={() => router.replace('/home')}
+      onContinue={async () => {
+        await completeOnboarding();
+        router.replace('/home');
+      }}
     />
   );
 }
